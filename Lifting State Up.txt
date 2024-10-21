@@ -1,0 +1,28 @@
+super super-super common concept
+
+where this concept is needed ?
+ex = when we need to tell two different components (here in Player.jsx and GameBoard.jsx ) :-
+     In Player.jsx , we need to tell which player in active . Active player should be have a border around it's name.
+     In GameBoard , we need to tell which player in active . Active player should have chance to click (weather "X" or"O")
+
+Lifting State Up:-
+
+lift the state up to the *closest ancestor component* that has access to all components that need to work with the state
+(In our case *closest ancestor component* is in App.jsx )
+
+
+                                 Ancestor Component (here in App.jsx) = have state (state value) that's needed by both child 1 and child 2
+					|
+					|
+					|
+					|
+			   -------------------------------
+			   |				  |
+			   |				  |
+			   |		                  |
+			   |				  |
+                     child component 1                   child component 2
+	             (here in Player.jsx)                (here in GameBoard.jsx)
+
+ancestor passes a function that eventually changes the state via props to the child component
+this allows the child component to initiate the state
